@@ -54,7 +54,7 @@
                 float osciHeight = 1;
                 float scrollSpeed = _GameTime/3;
 
-                float2 newUV = float2( i.uv[0] , i.uv[1] + sin(i.uv[0]*3.1)  +  osciHeight *  sin(i.uv[1] * 6 - osciSpeed) - scrollSpeed);
+                float2 newUV = float2( i.uv[0] , i.uv[1] + sin(i.uv[0]*3.2)  +  osciHeight *  sin(i.uv[1] * 6 - osciSpeed) - scrollSpeed);
                 fixed4 mainTex = tex2D(_MainTex, newUV);
                 // sample the texture
 

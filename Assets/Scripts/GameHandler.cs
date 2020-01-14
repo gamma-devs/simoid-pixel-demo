@@ -15,16 +15,15 @@ public class GameHandler : MonoBehaviour
     {
         leftBarOriginalPos = leftBar.transform.position;
         playerOrder = new List<int>();
+        actionStack = new List<CombatAction>();
         leftBar.transform.Translate(new Vector3(-2f,0,0));
     }
 
     // Update is called once per frame
     void Update()
     {
-        foreach(int playerID in playerOrder){
-            Debug.Log(playerID);
-        }
 
+        // Handle left bar hide/show
         if(playerOrder.Count == 0){
             if(leftBar.transform.position.x > -11f){
                 leftBar.transform.Translate(new Vector3(-0.15f,0,0));
@@ -38,20 +37,29 @@ public class GameHandler : MonoBehaviour
             }
         }
 
-        if(Input.GetKeyDown(KeyCode.Z)){
+        // DEBUG RESET ALL ACTION BARS
+        if(Input.GetKeyDown(KeyCode.Q)){
             foreach(Transform child in playersParent.transform){
                 playerOrder.Clear();
                 child.gameObject.GetComponent<PlayerChar>().emptyActionBar();
             }
         }
+        
     }
 
+    // Push player ID to the player order stack.
     public void pushToPlayerOrder(int playerID){
         playerOrder.Add(playerID);
     }
 
+    // Push an CombatAction ot the stack
     public void pushToCombatStack(CombatAction action){
+        Debug.Log(action.name);
         actionStack.Add(action);
+    }
+
+    // Perform the action
+    public void doAction(int playerID){
         return;
     }
 }

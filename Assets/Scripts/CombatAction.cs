@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 
 namespace CombatClasses{
-    public class CombatAction
+    public struct CombatAction
     {
         public string name;
         public int damage;
