@@ -50,9 +50,9 @@
             {
                 
 
-                float osciSpeed = _GameTime/4;
+                float osciSpeed = _GameTime/5;
                 float osciHeight = 1;
-                float scrollSpeed = _GameTime/3;
+                float scrollSpeed = _GameTime/5;
 
                 float2 newUV = float2( i.uv[0] , i.uv[1] + sin(i.uv[0])  +  osciHeight *  sin(i.uv[1] * 6 - osciSpeed) - scrollSpeed);
                 fixed4 mainTex = tex2D(_MainTex, newUV);
